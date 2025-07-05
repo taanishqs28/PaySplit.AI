@@ -86,6 +86,6 @@ uvicorn app.main:app --reload --port 4000
 # 📬 CONTACT
 
 **Built by: Taanishq Sethi**
-- GitHub:   https://github.com/taanishqsethi
+- GitHub:   https://github.com/taanishqs28
 - LinkedIn: https://www.linkedin.com/in/taanishq-sethi/
 - Email:    taanishqsethi28@gmail.com 

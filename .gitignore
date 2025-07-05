@@ -1,0 +1,18 @@
+# Global
+.DS_Store
+.env
+
+# Python backend
+server/venv/
+server/__pycache__/
+server/*.pyc
+server/*.csv
+
+# Node frontend (if you add later)
+client/node_modules/
+client/.next/
+client/.env.local
+
+# IDE
+.vscode/
+.idea/

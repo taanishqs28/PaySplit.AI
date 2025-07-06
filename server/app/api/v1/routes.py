@@ -11,6 +11,10 @@ async def upload_csv(file: UploadFile = File(...)):
     - Accepts only `.csv` files
     - Returns parsed transaction data
     """
+    # Check if filename exists and is a CSV file
+    if not file.filename:
+        raise HTTPException(status_code=400, detail="No filename provided.")
+    
     if not file.filename.lower().endswith('.csv'):
         raise HTTPException(status_code=400, detail="File must be a CSV.")
     

@@ -36,10 +36,10 @@ def sample_csv_data():
     """
     # Sample transaction data that a user might upload
     data = {
-        'Date': ['2024-01-15', '2024-01-16', '2024-01-17'],
+        'Date': ['2025-06-20', '2025-06-21', '2025-06-22'],
         'Description': ['Uber Ride', 'Starbucks Coffee', 'Freelance Payment'],
         'Amount': [25.50, 4.75, 500.00],
-        'Type': ['Expense', 'Expense', 'Income']
+        'Type': ['Income', 'Expense', 'Expense']
     }
     
     # Create a DataFrame and convert to CSV string

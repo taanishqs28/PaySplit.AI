@@ -1,18 +1,41 @@
-# Global
+# macOS system files
 .DS_Store
+
+# Environment variables
 .env
-
-# Python backend
-server/venv/
-server/__pycache__/
-server/*.pyc
-server/*.csv
-
-# Node frontend (if you add later)
-client/node_modules/
-client/.next/
 client/.env.local
 
-# IDE
+# Python virtual environments
+server/venv/
+venv/
+
+# Python bytecode and cache (recursive)
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+
+# Test and coverage artifacts
+server/.pytest_cache/
+server/htmlcov/
+server/.coverage
+server/coverage.xml
+
+# Type checker caches
+server/.mypy_cache/
+server/.pyre/
+
+# Node.js dependencies and build
+client/node_modules/
+client/.next/
+
+# IDE/editor settings
 .vscode/
 .idea/
+
+# Jupyter Notebooks (if you use them)
+**/.ipynb_checkpoints/
+
+# Ignore all .csv files except sample data (optional)
+# *.csv
+# !server/sample_transactions.csv

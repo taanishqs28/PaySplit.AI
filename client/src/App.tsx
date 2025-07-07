@@ -7,22 +7,22 @@ import { UploadCsv } from './components/UploadCsv'
 import TransactionList from './components/TransactionList'
 
 // TypeScript interface for our app state
-interface AppState {
-  isLoggedIn: boolean;
-  userName: string;
-}
+// interface AppState {
+//   isLoggedIn: boolean;
+//   userName: string;
+// }
 
 function App(): React.JSX.Element {
   // useState with TypeScript - we specify the type of our state
-  const [appState, setAppState] = useState<AppState>({
-    isLoggedIn: false,
-    userName: 'Freelancer'
-  });
+//   const [, setAppState] = useState<AppState>({
+//     isLoggedIn: false,
+//     userName: 'Freelancer'
+//   });
 
   // Add this state for testing
   const [summary, setSummary] = useState<TransactionSummary | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [, setLoading] = useState(false);
+  const [, setError] = useState<string | null>(null);
 
   useEffect(() => {
     refreshSummary();
@@ -41,13 +41,13 @@ function App(): React.JSX.Element {
     }
   };
 
-  // Typed function to handle login
-  const handleLogin = (): void => {
-    setAppState(prevState => ({
-      ...prevState,
-      isLoggedIn: true
-    }));
-  };
+  // Basic function to handle login will come in v2
+//   const handleLogin = (): void => {
+//     setAppState(prevState => ({
+//       ...prevState,
+//       isLoggedIn: true
+//     }));
+//   };
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', maxWidth: '800px', margin: '0 auto' }}>

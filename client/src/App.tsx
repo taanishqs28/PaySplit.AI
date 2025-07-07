@@ -1,8 +1,10 @@
 // This import is needed for TypeScript to understand JSX
-import React, { useState } from 'react'
-import Welcome from './components/Welcome'
+import React, { useState, useEffect } from 'react'
+//import Welcome from './components/Welcome'
 import { TransactionApiService } from './services/api'
 import { TransactionSummary } from './types'
+import { UploadCsv } from './components/UploadCsv'
+import TransactionList from './components/TransactionList'
 
 // TypeScript interface for our app state
 interface AppState {
@@ -22,17 +24,18 @@ function App(): React.JSX.Element {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Add this function to test the API
-  const testApi = async (): Promise<void> => {
+  useEffect(() => {
+    refreshSummary();
+  }, []);
+
+  const refreshSummary = async () => {
     try {
       setLoading(true);
       setError(null);
       const data = await TransactionApiService.getTransactionSummary();
       setSummary(data);
-      console.log('API Response:', data);
     } catch (err) {
       setError('Failed to load data');
-      console.error('API Error:', err);
     } finally {
       setLoading(false);
     }
@@ -59,45 +62,26 @@ function App(): React.JSX.Element {
         <p>Financial Tracker for Freelancers</p>
       </header>
       
-      <main style={{ padding: '20px' }}>
+      {/* <main style={{ padding: '20px' }}>
         <Welcome 
           name={appState.userName}
           isLoggedIn={appState.isLoggedIn}
           onLogin={handleLogin}
-        />
+        /> */}
         
         {/* Add this test section */}
-        <div style={{ marginTop: '20px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
-          <h3>API Test</h3>
-          <button 
-            onClick={testApi}
-            disabled={loading}
-            style={{ 
-              padding: '8px 16px', 
-              backgroundColor: '#22c55e', 
-              color: 'white', 
-              border: 'none', 
-              borderRadius: '4px',
-              cursor: loading ? 'not-allowed' : 'pointer'
-            }}
-          >
-            {loading ? 'Loading...' : 'Test API Connection'}
-          </button>
-          
-          {error && (
-            <p style={{ color: 'red', marginTop: '10px' }}>Error: {error}</p>
-          )}
-          
-          {summary && (
-            <div style={{ marginTop: '10px' }}>
-              <h4>Financial Summary:</h4>
-              <p>Total Income: ${summary.total_income}</p>
-              <p>Total Expenses: ${summary.total_expenses}</p>
-              <p>Net Amount: ${summary.net_amount}</p>
-            </div>
-          )}
-        </div>
-      </main>
+        <main style={{ padding: '20px' }}>
+          <UploadCsv onUploadSuccess={refreshSummary} />
+
+          <div style={{ marginTop: '20px', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
+            <h3>Financial Summary</h3>
+            <p><strong>Total Income:</strong> ${summary ? summary.total_income : 0}</p>
+            <p><strong>Total Expenses:</strong> ${summary ? summary.total_expenses : 0}</p>
+            <p><strong>Net Amount:</strong> ${summary ? summary.net_amount : 0}</p>
+          </div>
+
+          <TransactionList />
+        </main>
     </div>
   )
 }

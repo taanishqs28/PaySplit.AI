@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { TransactionApiService } from './services/api'
 import { Transaction ,TransactionSummary } from './types'
 import { UploadCsv } from './components/UploadCsv'
-import TransactionList from './components/TransactionList'
+//import TransactionList from './components/TransactionList'
 
 // TypeScript interface for our app state
 // interface AppState {

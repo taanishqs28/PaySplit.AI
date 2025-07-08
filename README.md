@@ -1,32 +1,35 @@
 # PaySplit.AI
 
-**PaySplit.AI** is an AI-powered financial tracker built for freelancers, gig workers, and side hustlers.  
-It helps users import their transaction history, categorize expenses as business or personal, and estimate taxes — all from a clean and modern interface.
+**PaySplit.AI** is a portfolio-ready SaaS project designed for freelancers, gig workers, and side hustlers to track and manage their finances.  
+It enables users to upload bank transaction CSVs, view summaries, and lays the foundation for advanced AI-powered categorization and tax estimation.
 
-> This is a full-stack project built to showcase my skills in backend API development (FastAPI), frontend UI (Next.js), file parsing, AI integration (OpenAI), and database design.
+> This project demonstrates production-grade backend API development (FastAPI, PostgreSQL), robust error handling, modular design, and a clear roadmap for future extensibility (AI, frontend, multi-user, etc.).
 
 ---
 
-## ✨ Features
+## ✨ Version 1: Completed Features
 
-- ✅ Upload CSV files of transactions
-- ✅ Parse and display transactions using `pandas`
-- ✅ Clean, modular FastAPI backend
-- ✅ Future: AI-powered categorization (OpenAI)
-- ✅ Future: Frontend UI for uploading + dashboard
-- ✅ Future: PostgreSQL database for persistent storage
+- **CSV Upload & Parsing:** Upload bank transaction CSVs, parsed using `pandas`.
+- **API Endpoints:** RESTful endpoints to upload, list, retrieve, and summarize transactions.
+- **Database Integration:** PostgreSQL with SQLAlchemy ORM; tables auto-created if missing.
+- **Error Handling:** Robust responses for bad files, missing fields, and server errors.
+- **Automated Tests:** Pytest coverage for upload, parsing, and error cases.
+- **API Versioning:** All endpoints under `/api/v1/` for future-proofing.
+- **Modular Codebase:** Structured for maintainability and extensibility.
+- **Environment Management:** Uses `python-dotenv` for configuration.
+- **Production-Ready:** Clean, documented, and ready for portfolio/interview use.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Layer       | Tech                             |
-|------------|----------------------------------|
-| Backend     | Python, FastAPI, Uvicorn, Pandas |
-| Frontend    | Next.js (coming soon)            |
-| AI          | OpenAI API (for smart categorization) |
-| Database    | PostgreSQL (planned)             |
-| Dev Tools   | VS Code, Git, GitHub             |
+| Layer       | Tech                                      |
+|-------------|-------------------------------------------|
+| Backend     | Python, FastAPI, Uvicorn, Pandas, SQLAlchemy |
+| Database    | PostgreSQL                                |
+| Frontend    | Next.js (planned)                         |
+| AI          | OpenAI API (planned)                      |
+| Dev Tools   | VS Code, Git, GitHub, pytest              |
 
 ---
 
@@ -35,57 +38,72 @@ It helps users import their transaction history, categorize expenses as business
 ### Backend (FastAPI)
 
 1. **Navigate to the server folder**
-
-```bash
-cd server
-```
+    ```bash
+    cd server
+    ```
 
 2. **Create virtual environment**
-```bash
-python3 -m venv venv
-source venv/bin/activate # or venv\Scripts\activate on Windows
-```
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate  # or venv\Scripts\activate on Windows
+    ```
 
 3. **Install dependencies**
-```bash
-pip install -r requirements.txt
-```
+    ```bash
+    pip install -r requirements.txt
+    ```
+
 4. **Run the backend**
-```bash
-uvicorn app.main:app --reload --port 4000
-```
-5. **Test it in your browser:**
-- Visit http://localhost:4000/docs
-- Upload a sample .csv to the /upload endpoint
+    ```bash
+    uvicorn app.main:app --reload --port 4000
+    ```
 
-# 📌 PROJECT GOALS
-- Build a full-stack production-grade app from scratch
-- Strengthen FastAPI backend skills (async, modular, clean)
-- Practice real-world file handling, error catching, and logging
-- Integrate OpenAI for real transaction classification
-- Prep a standout portfolio project for interviews
-- Learn how to parse, clean, and manage financial data
-- Build a useful tool for freelancers, gig workers, and creators
+5. **Test in your browser:**
+    - Visit http://localhost:4000/docs
+    - Upload a sample .csv to the `/api/v1/upload` endpoint
 
-# 🛣 ROADMAP
+---
 
-- [x] Set up FastAPI backend structure
-- [x] Enable CSV upload and parsing via pandas
-- [x] Add CORS and API versioning
-- [ ] Handle upload edge cases (bad file, missing columns, etc)
-- [ ] Add OpenAI for category + business/personal suggestions
-- [ ] Build frontend UI with Next.js + Tailwind
-- [ ] Add income/expense visualization (Recharts)
-- [ ] Add transaction tagging (personal, business, %, etc)
-- [ ] Estimate quarterly taxes
-- [ ] Add PostgreSQL for data persistence
-- [ ] Add auth (Clerk.dev or Supabase Auth)
-- [ ] Generate PDF tax summary
-- [ ] Deploy backend + frontend
+## 🏁 Version 1 Overview
 
-# 📬 CONTACT
+- **Single-user backend:** All core features for uploading, storing, and summarizing transactions.
+- **Robust error handling:** Clear HTTP responses for all error cases.
+- **Automated tests:** Ensures reliability and correctness.
+- **Ready for extension:** Designed for easy addition of AI, frontend, and multi-user features.
 
-**Built by: Taanishq Sethi**
-- GitHub:   https://github.com/taanishqs28
-- LinkedIn: https://www.linkedin.com/in/taanishq-sethi/
-- Email:    taanishqsethi28@gmail.com 
+---
+
+## 🛣️ Roadmap & Future Updates
+
+### Planned Features
+
+- **AI-Powered Categorization:** Use OpenAI to auto-categorize transactions.
+- **Business/Personal Split:** Mark and split transactions for business vs. personal use.
+- **State-Based Tax Logic:** Estimate taxes based on user’s state.
+- **Frontend UI:** Next.js dashboard for uploads, summaries, and visualizations.
+- **User Authentication:** Multi-user support and secure login.
+- **CRUD Endpoints:** Update, delete, and filter transactions.
+- **PDF Export:** Download transaction summaries for tax filing.
+- **Third-Party Integrations:** Plaid/Stripe for automated bank data import.
+- **CI/CD Pipeline:** Automated testing and deployment.
+- **Alembic Migrations:** Database schema versioning.
+- **End-to-End Tests:** Full workflow coverage.
+- **Security & DevOps:** Best practices for production SaaS.
+
+---
+
+## 📌 Project Goals
+
+- Build a full-stack, production-grade SaaS app from scratch.
+- Demonstrate backend skills (FastAPI, PostgreSQL, error handling, testing).
+- Prepare a standout portfolio project for interviews.
+- Help freelancers and gig workers manage finances with ease.
+
+---
+
+## 📬 Contact
+
+**Built by: Taanishq Sethi**  
+- GitHub:   https://github.com/taanishqs28  
+- LinkedIn: https://www.linkedin.com/in/taanishq-sethi/  
+- Email:    taanishqsethi28@gmail.com  
